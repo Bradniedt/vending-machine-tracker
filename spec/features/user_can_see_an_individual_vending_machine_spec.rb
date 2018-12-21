@@ -4,6 +4,8 @@ feature 'When a user visits a vending machine show page' do
   scenario 'they see the location of that machine' do
     owner = Owner.create(name: "Sam's Snacks")
     dons  = owner.machines.create(location: "Don's Mixed Drinks")
+    snack_1 = Snack.create(name: 'twizzlers', price: 2, machines: [dons])
+    snack_2 = Snack.create(name: 'poptarts', price: 3, machines: [dons])
 
     visit machine_path(dons)
 
